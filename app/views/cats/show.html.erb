@@ -36,5 +36,11 @@
   <%= @cat.in_daycare %>
 </p>
 
+<p>
+  <%= image_tag @cat.avatar.url %>
+  <%= image_tag @cat.avatar.url(:medium) %>
+  <%= image_tag @cat.avatar.url(:thumb) %>
+</p>
+
 <%= link_to fa_icon("pencil", text: 'Edit'), edit_cat_path(@cat), class: "btn btn-primary" %>
 <%= link_to 'Back', cats_path, class: "btn btn-default" %>

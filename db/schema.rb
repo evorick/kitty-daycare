@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818135422) do
+ActiveRecord::Schema.define(version: 20150819134953) do
 
   create_table "breeds", force: :cascade do |t|
     t.string   "breed"
@@ -28,8 +28,12 @@ ActiveRecord::Schema.define(version: 20150818135422) do
     t.string   "vet_name"
     t.string   "vet_phone"
     t.boolean  "in_daycare"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "cats", ["breed_id"], name: "index_cats_on_breed_id"
