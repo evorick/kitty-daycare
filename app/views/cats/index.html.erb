@@ -7,7 +7,19 @@
        <div class="panel-heading">
          <h3 class="panel-title"><%= cat.name %> <%= cat.try(:owner).try(:last_name) %></h3>
        </div>
+
        <div class="panel-body">
+
+          <%= form_for(cat, url: cat_path(cat), :html => {class: "form-inline"}) do |f| %>
+           <% if cat.in_daycare %>
+             <%= f.hidden_field :in_daycare, :value => false %>
+             <%= f.submit "Check Out", class: "btn btn-warning btn-xs" %>
+           <% else %>
+             <%= f.hidden_field :in_daycare, :value => true %>
+             <%= f.submit "Check In", class: "btn btn-success btn-xs" %>
+           <% end %>
+         <% end %>
+
           <%= image_tag cat.avatar.url(:medium), class: "img-responsive" %>
          <%= cat.allergies %>
          <%= cat.in_daycare %>
