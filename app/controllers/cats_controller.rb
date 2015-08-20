@@ -50,7 +50,7 @@ class CatsController < ApplicationController
   def update
     respond_to do |format|
       if @cat.update(cat_params)
-        format.html { redirect_to @cat, notice: 'Cat was successfully updated.' }
+        format.html { redirect_to cats_path, notice: 'Cat was successfully updated.' }
         format.json { render :show, status: :ok, location: @cat }
       else
         format.html { render :edit }
