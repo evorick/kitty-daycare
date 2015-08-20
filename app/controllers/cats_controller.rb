@@ -4,7 +4,15 @@ class CatsController < ApplicationController
   # GET /cats
   # GET /cats.json
   def index
-    @cats = Cat.all
+    if params[:search]
+      @cats = Cat.where("name LIKE ?", "%#{params[:search]}%")
+      if @cats.size.zero?
+        flash[:notice] = "No result found"
+        @cats.all
+      end
+    else
+      @cats = Cat.all
+    end
   end
 
   # GET /cats/1
@@ -71,4 +79,5 @@ class CatsController < ApplicationController
     def cat_params
       params.require(:cat).permit(:name, :owner_id, :breed_id, :dob, :allergies, :vet_name, :vet_phone, :in_daycare, :avatar)
     end
+
 end
