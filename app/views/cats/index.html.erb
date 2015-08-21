@@ -1,5 +1,12 @@
 <h1>Listing Cats</h1>
 
+<p>Filter by:</p>
+<p>
+ <% @breeds.each do |breed| %>
+   <a href="?breed_ids=<%= breed.id %>"><button class="btn btn-default btn-xs"><%= breed.breed %></button></a>
+ <% end %>
+</p>
+
 <div class="row">
  <% @cats.each do |cat| %>
    <div class="col-sm-4">
@@ -19,6 +26,12 @@
              <%= f.submit "Check In", class: "btn btn-success btn-xs" %>
            <% end %>
          <% end %>
+
+
+
+
+
+
 
           <%= image_tag cat.avatar.url(:medium), class: "img-responsive" %>
          <%= cat.allergies %>
