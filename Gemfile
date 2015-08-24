@@ -39,6 +39,7 @@ gem 'annotate'
 gem 'starter_generators'
 gem 'stamp'
 gem "paperclip", "~> 4.3"
+gem 'devise'
 
 
 group :development do
